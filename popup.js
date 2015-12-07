@@ -1,13 +1,13 @@
 window.onload = function(){
- var rollno = document.getElementById("rollno").value;
-	var pass = document.getElementById("pass").value;
-chrome.storage.sync.get(function(items){
+	chrome.storage.sync.get(function(items){
 					console.log(items.rollno);
-					rollno.value=String(items.rollno);
-					pass.value=String(items.pass);
+					document.getElementById("rollno").value=String(items.rollno);
+					document.getElementById("pass").value=String(items.pass);
+					alert(pass.value);
+					document.getElementById("form").submit();
 					});
 	document.forms["form"].addEventListener("submit",function(){
-	var btn=document.getElementById("btn");
+//	var btn=document.getElementById("btn");
 	var rollno = document.getElementById("rollno").value;
 	var pass = document.getElementById("pass").value;
 //	console.log(1);
