@@ -1,6 +1,6 @@
 <?php
-$username=$_POST["rollno"];
-$password=$_POST["pass"];
+$username=$_GET["rollno"];
+$password=$_GET["pass"];
 $path = "/var/www/ext1";
 $url="http://internship.iitm.ac.in/students/login.php";
 $postinfo = "rollno=".$username."&pass=".$password;
@@ -47,9 +47,9 @@ for($i=0;$i<$len;$i++){
 //	$txt0[$txt1[$i]][] = $txt2[$i];
 //	$txt["companies"][]=$txt1[$i];
 }
-$txt["count"]=$len;
+$txt["count"]=120;
 //	$txt["companies"]=$txt0;
 //$txt3=$txt
-echo json_encode($txt);
+echo json_encode($txt["count"]);
 ?>
 
