@@ -13,18 +13,5 @@ window.onload = function(){
 		chrome.storage.sync.set({'rollno': rollno,'pass': pass}, function() {
     	document.getElementById("test").innerHTML='Settings saved';
 		});
-	/*	var url = 'http://internship.iitm.ac.in/students/comp_list.php';
-    var xhr = new XMLHttpRequest();
-		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		alert(2);
-    xhr.onreadystatechange = function() { 
-        if (xhr.readyState == 4 && xhttp.status == 200) {
-//      document.getElementById("").innerHTML = xhttp.responseText;
-			alert(1);
-			console.log(xhttp.responseText);
-    }
-  	};
-  	xhr.open("GET", url, true);
-  	xhr.send();*/
 	});
 };

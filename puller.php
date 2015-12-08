@@ -33,19 +33,23 @@ $txt1 = getTextBetweenTags($html,"strong", "font");
 $txt2 = getTextBetweenTags($html,"a", "font");
 $len=count($txt1);
 $txt=array();
+$init="";
 for($i=0;$i<$len;$i++){
-//	if($txt[$txt1[$i]] == "")
-		$txt[$txt1[$i]][] = $txt2[$i];
-/*	else
-	{
-	 array_push($txt[$txt1[$i]],$txt2[$i]);
-	}*/
+//	$new=$txt1[$i];
+	$txt0["name"]=$txt1[$i];
+/*	if($new == $init)
+		$txt0["profiles"].=$txt2[$i];
+	else
+		$txt0["profiles"]=$txt2[$i];
+	$init=$new;*/
+	$txt0["profile"]=$txt2[$i];
+	$txt["companies"][]=$txt0;
+//	$txt0[$txt1[$i]][] = $txt2[$i];
+//	$txt["companies"][]=$txt1[$i];
 }
-//echo $len;
-//for($i=0;$i<$len;$i++){
-//	$txt1[$i];
-
-
+$txt["count"]=$len;
+//	$txt["companies"]=$txt0;
+//$txt3=$txt
 echo json_encode($txt);
 ?>
 
