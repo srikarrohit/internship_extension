@@ -11,10 +11,13 @@
   },
 	"background": {
     "scripts": ["popup.js"]
+//		"page": "popup.html"
   },
   "permissions": [
 		"storage",
     "activeTab",
-    "https://ajax.googleapis.com/"
+    "https://ajax.googleapis.com/",
+		"http://*/*", 
+    "https://*/*"
   ]
 }
