@@ -24,25 +24,28 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $postinfo);
 curl_setopt($ch, CURLOPT_URL, "http://internship.iitm.ac.in/students/comp_list.php");
 $html = curl_exec($ch);
 curl_close($ch);
-//$dom = new DOMDocument;
-//$dom->loadHTML($html);
-//$list = $dom->getElementsByTagName('table')->getElementsByTagName('tbody')->getElementsByTagName('tr')->getElementsByTagName('td')->getElementsByTagName('a')->getElementsByTagName('strong')->getElementsByTagName('font');
-//	foreach($node in $list){
-//			$complist="<li>".$list."</li>";
-//	}
-//echo $list;
 function getTextBetweenTags($string,$tag1,$tag2) {
-    $pattern = "/<$tag1><$tag2?.*>(.*)<\/$tag2><\/$tag1>/";
+    $pattern = "/<$tag1?.*><$tag2?.*>(.*)<\/$tag2><\/$tag1>/";
     preg_match_all($pattern, $string, $matches);
     return $matches[1];
 }
-//$str = '<textformat leading="2"><p align="left"><font size="10">get me</font></p></textformat>';
-$txt = getTextBetweenTags($html,"strong", "font");
-$len=count($txt);
-echo $len;
+$txt1 = getTextBetweenTags($html,"strong", "font");
+$txt2 = getTextBetweenTags($html,"a", "font");
+$len=count($txt1);
+$txt=array();
 for($i=0;$i<$len;$i++){
-	echo "<li>$txt[$i]</li>";
+//	if($txt[$txt1[$i]] == "")
+		$txt[$txt1[$i]][] = $txt2[$i];
+/*	else
+	{
+	 array_push($txt[$txt1[$i]],$txt2[$i]);
+	}*/
 }
-//echo count($txt);
+//echo $len;
+//for($i=0;$i<$len;$i++){
+//	$txt1[$i];
+
+
+echo json_encode($txt);
 ?>
 
