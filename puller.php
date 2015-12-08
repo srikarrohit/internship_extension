@@ -35,21 +35,11 @@ $len=count($txt1);
 $txt=array();
 $init="";
 for($i=0;$i<$len;$i++){
-//	$new=$txt1[$i];
 	$txt0["name"]=$txt1[$i];
-/*	if($new == $init)
-		$txt0["profiles"].=$txt2[$i];
-	else
-		$txt0["profiles"]=$txt2[$i];
-	$init=$new;*/
 	$txt0["profile"]=$txt2[$i];
 	$txt["companies"][]=$txt0;
-//	$txt0[$txt1[$i]][] = $txt2[$i];
-//	$txt["companies"][]=$txt1[$i];
 }
-$txt["count"]=120;
-//	$txt["companies"]=$txt0;
-//$txt3=$txt
+$txt["count"]=$len;
 echo json_encode($txt["count"]);
 ?>
 
